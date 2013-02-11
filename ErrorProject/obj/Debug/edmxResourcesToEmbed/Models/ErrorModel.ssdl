@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ErrorDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ErrorDBModelStoreContainer">
+    <EntitySet Name="Comment" EntityType="ErrorDBModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Error" EntityType="ErrorDBModel.Store.Error" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Comment_Error" Association="ErrorDBModel.Store.FK_Comment_Error">
+      <End Role="Error" EntitySet="Error" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="ErrorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Error">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="AddressedTo" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Comment_Error">
+    <End Role="Error" Type="ErrorDBModel.Store.Error" Multiplicity="1" />
+    <End Role="Comment" Type="ErrorDBModel.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Error">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ErrorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

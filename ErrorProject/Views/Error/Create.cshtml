@@ -1,0 +1,56 @@
+﻿@model ErrorProject.Models.Error
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    
+    <fieldset>
+        <legend>Error</legend>
+        <!--Millegi pärast ei näidata nime validatsiooni 
+            sõnumit kui nime lahter on tühi. Controlleris
+            on hard-coded see, et ei saa sisestada tühja
+            nimega errorit. -->
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            <p style="margin-top:0px">Format: yyyy-mm-dd</p>
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AddressedTo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AddressedTo)
+            @Html.ValidationMessageFor(model => model.AddressedTo)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

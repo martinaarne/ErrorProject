@@ -1,0 +1,8 @@
+﻿@model IEnumerable<ErrorProject.Models.Comment>
+<h2>Comments</h2>
+@foreach (var item in Model)
+{
+    <p>
+        @Html.DisplayFor(modelItem => item.Text)
+    </p>
+}
