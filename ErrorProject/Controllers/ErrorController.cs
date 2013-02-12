@@ -119,7 +119,7 @@ namespace ErrorProject.Controllers
 
         //
         //POST: /Error/Search/5
-
+        [HttpPost]
         public ActionResult Search(int id = 0)
         {
             Error error = db.Errors.Find(id);

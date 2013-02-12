@@ -46,3 +46,4 @@ c:\users\martin\documents\visual studio 2012\Projects\ErrorProject\ErrorProject\
 c:\users\martin\documents\visual studio 2012\Projects\ErrorProject\ErrorProject\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
 c:\users\martin\documents\visual studio 2012\Projects\ErrorProject\ErrorProject\obj\Debug\ErrorProject.dll
 c:\users\martin\documents\visual studio 2012\Projects\ErrorProject\ErrorProject\obj\Debug\ErrorProject.pdb
+C:\Users\Martin\Documents\Visual Studio 2012\Projects\ErrorProject\ErrorProject\obj\Debug\ErrorProject.csprojResolveAssemblyReference.cache
